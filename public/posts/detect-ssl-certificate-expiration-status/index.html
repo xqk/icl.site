@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    
+      <title>
+        检测SSL证书到期状态 ::
+        ICL — 酷酷的程序猿
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="直接上干货！
+配置文件 #  domain_ssl.info
+www.icl.site:443 shell文件： #  check_domain_time.sh
+#!/bin/bash ################ Version Info ################## # Create Date: 2022-04-28 # Author: xqk # Mail: xiaqiankun@outlook.com # Version: 1.0 # Attention: 通过域名获取证书的过期时间 ################################################ # 加载环境变量 . /etc/profile . ~/.bash_profile . /etc/bashrc # 脚本所在目录即脚本名称 script_dir=$( cd &amp;#34;$( dirname &amp;#34;$0&amp;#34; )&amp;#34; &amp;amp;&amp;amp; pwd ) script_name=$(basename ${0}) # 当前时间 CURRENT_TIME=$(date &amp;#34;&#43;%Y-%m-%d %H:%M:%S&amp;#34;) # 声明报警数组 function main(){ declare -A warningDomains=() warningDomainsStr=&amp;#34;&amp;#34; readFile=&amp;#34;${script_dir}/domain_ssl.info&amp;#34; i=0 while read line do if [[ $line =~ &amp;#34;#&amp;#34; ]];then continue fi get_domain=$(echo &amp;#34;${line}&amp;#34; | awk -F &amp;#39;:&amp;#39; &amp;#39;{print $1}&amp;#39;) get_port=$(echo &amp;#34;${line}&amp;#34; | awk -F &amp;#39;:&amp;#39; &amp;#39;{print $2}&amp;#39;) END_TIME=$(echo | openssl s_client -servername ${get_domain} -connect ${get_domain}:${get_port} 2&amp;gt;/dev/null | openssl x509 -noout -dates |grep &amp;#39;After&amp;#39;| awk -F &amp;#39;=&amp;#39; &amp;#39;{print $2}&amp;#39;| awk -F &amp;#39; &#43;&amp;#39; &amp;#39;{print $1,$2,$4 }&amp;#39; ) END_TIME1=$(date &#43;%s -d &amp;#34;$END_TIME&amp;#34;) #将日期转化为时间戳 NOW_TIME=$(date -d &amp;#34;$CURRENT_TIME&amp;#34; &#43;%s) #将目前的日期也转化为时间戳 RST=$(($(($END_TIME1-$NOW_TIME))/(60*60*24))) # 到期时间减去目前时间再转化为天数 END_TIME_S=$(date -d @$END_TIME1 &amp;#34;&#43;%Y-%m-%d&amp;#34;) # echo &amp;#34;${get_domain} 还剩${RST}天 ${END_TIME_S}&amp;#34; # 找出剩余不到20天的域名证书 if [[ $RST -lt 20 ]]; then warningDomains[$i]=&amp;#34;${get_domain}-还剩${RST}天-${END_TIME_S}&amp;#34; let i&#43;&#43; fi done &amp;lt; $readFile num=${#warningDomains[@]} if [[ $num -gt 0 ]]; then # 这些就是需要告警的域名 echo ${warningDomains[@]} # exit 1  fi } # 执行函数 main "
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/detect-ssl-certificate-expiration-status/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css" />
+
+<link rel="stylesheet" href="/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="检测SSL证书到期状态"/>
+<meta name="twitter:description" content="不管怎样，网站安装SSL证书已经是大势所趋。当然，也有很多用户安装SSL证书就不管它了，所以务必要注意这一点，SSL证书也是有有效期期限的。如果超过了有效期，SSL证书便成了虚设，失去了其原本应有的作用。那么，怎么查看ssl证书是否过期？"/>
+
+
+
+<meta property="og:title" content="检测SSL证书到期状态" />
+<meta property="og:description" content="不管怎样，网站安装SSL证书已经是大势所趋。当然，也有很多用户安装SSL证书就不管它了，所以务必要注意这一点，SSL证书也是有有效期期限的。如果超过了有效期，SSL证书便成了虚设，失去了其原本应有的作用。那么，怎么查看ssl证书是否过期？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/detect-ssl-certificate-expiration-status/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-02T01:12:46+08:00" />
+<meta property="article:modified_time" content="2022-05-02T01:12:46+08:00" /><meta property="og:site_name" content="ICL" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >ICL</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">检测SSL证书到期状态</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-05-02
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="/tags/ssl/">#ssl</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>直接上干货！</p>
+<h3 id="配置文件">
+  配置文件
+  <a href="#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p><code>domain_ssl.info</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">www.icl.site:443
+</code></pre></div><h3 id="shell文件">
+  shell文件：
+  <a href="#shell%e6%96%87%e4%bb%b6" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p><code>check_domain_time.sh</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span><span style="color:#75715e">################ Version Info ##################</span>
+<span style="color:#75715e"># Create Date: 2022-04-28</span>
+<span style="color:#75715e"># Author:      xqk</span>
+<span style="color:#75715e"># Mail:        xiaqiankun@outlook.com</span>
+<span style="color:#75715e"># Version:     1.0</span>
+<span style="color:#75715e"># Attention:   通过域名获取证书的过期时间</span>
+<span style="color:#75715e">################################################</span>
+
+<span style="color:#75715e"># 加载环境变量</span>
+. /etc/profile
+. ~/.bash_profile
+. /etc/bashrc
+
+<span style="color:#75715e"># 脚本所在目录即脚本名称</span>
+script_dir<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span> cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span> dirname <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span>  <span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> pwd <span style="color:#66d9ef">)</span>
+script_name<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>basename <span style="color:#e6db74">${</span>0<span style="color:#e6db74">}</span><span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e"># 当前时间</span>
+CURRENT_TIME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#34;+%Y-%m-%d %H:%M:%S&#34;</span><span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e"># 声明报警数组</span>
+
+<span style="color:#66d9ef">function</span> main<span style="color:#f92672">(){</span>
+    declare -A warningDomains<span style="color:#f92672">=()</span>
+    warningDomainsStr<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+    readFile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>script_dir<span style="color:#e6db74">}</span><span style="color:#e6db74">/domain_ssl.info&#34;</span>
+
+    i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">while</span> read line
+    <span style="color:#66d9ef">do</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $line <span style="color:#f92672">=</span>~ <span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#f92672">]]</span>;<span style="color:#66d9ef">then</span>
+            <span style="color:#66d9ef">continue</span>
+        <span style="color:#66d9ef">fi</span>
+
+        get_domain<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>line<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | awk -F <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+        get_port<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>line<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | awk -F <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#66d9ef">)</span>
+
+        END_TIME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo | openssl s_client -servername <span style="color:#e6db74">${</span>get_domain<span style="color:#e6db74">}</span>  -connect <span style="color:#e6db74">${</span>get_domain<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>get_port<span style="color:#e6db74">}</span> 2&gt;/dev/null | openssl x509 -noout -dates |grep <span style="color:#e6db74">&#39;After&#39;</span>| awk -F <span style="color:#e6db74">&#39;=&#39;</span> <span style="color:#e6db74">&#39;{print $2}&#39;</span>| awk -F <span style="color:#e6db74">&#39; +&#39;</span> <span style="color:#e6db74">&#39;{print $1,$2,$4 }&#39;</span> <span style="color:#66d9ef">)</span>
+        END_TIME1<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +%s -d <span style="color:#e6db74">&#34;</span>$END_TIME<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span> <span style="color:#75715e">#将日期转化为时间戳</span>
+        NOW_TIME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date -d <span style="color:#e6db74">&#34;</span>$CURRENT_TIME<span style="color:#e6db74">&#34;</span> +%s<span style="color:#66d9ef">)</span> <span style="color:#75715e">#将目前的日期也转化为时间戳</span>
+
+        RST<span style="color:#f92672">=</span><span style="color:#66d9ef">$(($((</span>$END_TIME1<span style="color:#f92672">-</span>$NOW_TIME<span style="color:#66d9ef">))</span><span style="color:#f92672">/(</span><span style="color:#ae81ff">60</span><span style="color:#f92672">*</span><span style="color:#ae81ff">60</span><span style="color:#f92672">*</span><span style="color:#ae81ff">24</span><span style="color:#66d9ef">))</span><span style="color:#f92672">)</span> <span style="color:#75715e"># 到期时间减去目前时间再转化为天数</span>
+        END_TIME_S<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date -d @$END_TIME1 <span style="color:#e6db74">&#34;+%Y-%m-%d&#34;</span><span style="color:#66d9ef">)</span>
+
+        <span style="color:#75715e"># echo &#34;${get_domain} 还剩${RST}天 ${END_TIME_S}&#34;</span>
+
+        <span style="color:#75715e"># 找出剩余不到20天的域名证书</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $RST -lt <span style="color:#ae81ff">20</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+            warningDomains<span style="color:#f92672">[</span>$i<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>get_domain<span style="color:#e6db74">}</span><span style="color:#e6db74">-还剩</span><span style="color:#e6db74">${</span>RST<span style="color:#e6db74">}</span><span style="color:#e6db74">天-</span><span style="color:#e6db74">${</span>END_TIME_S<span style="color:#e6db74">}</span><span style="color:#e6db74"> &#34;</span>
+            let i++
+        <span style="color:#66d9ef">fi</span>
+
+    <span style="color:#66d9ef">done</span> &lt; $readFile
+
+    num<span style="color:#f92672">=</span><span style="color:#e6db74">${#</span>warningDomains[@]<span style="color:#e6db74">}</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $num -gt <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+        <span style="color:#75715e"># 这些就是需要告警的域名</span>
+        echo <span style="color:#e6db74">${</span>warningDomains[@]<span style="color:#e6db74">}</span>
+        
+        <span style="color:#75715e"># exit 1 </span>
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e"># 执行函数</span>
+main
+
+</code></pre></div>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >查看其他文章</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="/posts/git-branch-naming-convention/">
+                  <span class="button__text">Git分支命名规范</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >ICL</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          ><a href="https://beian.miit.gov.cn">苏ICP备19072419号-1</a> © 2022 技术支持
+          <a href="https://github.com/xqk" target="_blank" rel="noopener">xqk</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

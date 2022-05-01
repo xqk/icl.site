@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on ICL</title>
+    
+    
+    
+    <link>/tags/git/</link>
+    <description>Recent content in git on ICL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 01 May 2022 17:31:06 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git分支命名规范</title>
+      <link>/posts/git-branch-naming-convention/</link>
+      <pubDate>Sun, 01 May 2022 17:31:06 +0800</pubDate>
+      
+      <guid>/posts/git-branch-naming-convention/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          主分支 Master，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。 主分支必须是可用的、稳定的、可直接发布的版本，不能直接在主分支上开发。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
