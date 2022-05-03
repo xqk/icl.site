@@ -156,11 +156,11 @@ function yearList() {
 }
 
 function graph(year, posts, startDate, endDate) {
-  const postsStr = posts.length === 1 ? "post" : "posts";
+  const postsStr = posts.length === 1 ? "内容" : "内容";
   if (year === now.getFullYear().toString()) {
-    document.querySelector('#posts-count').innerText = `${posts.length}  ${postsStr} in the last year`;
+    document.querySelector('#posts-count').innerText = `最近一年${posts.length}篇${postsStr}`;
   } else {
-    document.querySelector('#posts-count').innerText = `${posts.length}  ${postsStr} in ${year}`;
+    document.querySelector('#posts-count').innerText = `${year}年${posts.length}篇${postsStr}`;
   }
 
   let html = ``;

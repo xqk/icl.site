@@ -1,11 +1,11 @@
 {{ define "overview" }}
 {{ $pinned := where .Site.Pages "Params.pin" true }}
 {{ $section := $pinned }}
-{{ $section_title := "Pinned" }}
+{{ $section_title := "置顶" }}
 
 {{ if ne (len $pinned) 0}}
 {{ else }}
-{{ $section = where .Site.RegularPages "Section" "in" (slice "post") }}
+{{ $section = where .Site.RegularPages "Section" "in" (slice "posts") }}
 {{ $section_title = "Popular posts" }}
 {{ end }}
 <div>
@@ -132,7 +132,7 @@
         </div>
 
         <h2 class="f4 text-normal mt-4 mb-3">
-          Post activity
+          动态
         </h2>
 
         <div id="posts-activity">
