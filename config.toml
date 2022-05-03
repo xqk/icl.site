@@ -8,53 +8,56 @@ pygmentsCodeFences = true
 pygmentsUseClasses = true
 
 [params]
-  author = "xiaqiankun"
-  description = "躺平即正义。Nothing is true, everything is permitted"
-  github = "xqk"
-  email = "xiaqiankun@outlook.com"
-  url = "https://www.icl.com"
-  keywords = "有钱"
-  rss = true
-  lastmod = true
-  userStatusEmoji = "😀"
-  location = "China"
-  favicon = "/images/favicon.png"
-  avatar = ""
-  enableGitalk = true
+author = "xiaqiankun"
+description = "躺平即正义。Nothing is true, everything is permitted"
+github = "xqk"
+email = "xiaqiankun@outlook.com"
+url = "https://www.icl.com"
+keywords = "有钱"
+rss = true
+lastmod = true
+userStatusEmoji = "😀"
+location = "China"
+favicon = "/images/favicon.png"
+avatar = ""
+enableGitalk = true
 
-    [params.gitalk]
-      clientID = "b61411f2bdbd985b3da2"
-      clientSecret = "edb4128727849400b78e389aa69492c8d718de9d"
-      repo = "blogtalk"
-      owner = "xqk"
-      admin = "xqk"
-      id = "location.pathname"
-      labels = "gitalk"
-      perPage = 15
-      pagerDirection = "last"
-      createIssueManually = true
-      distractionFreeMode = false
+[params.gitalk]
+clientID = "b61411f2bdbd985b3da2"
+clientSecret = "edb4128727849400b78e389aa69492c8d718de9d"
+repo = "blogtalk"
+owner = "xqk"
+admin = "xqk"
+id = "location.pathname"
+labels = "gitalk"
+perPage = 15
+pagerDirection = "last"
+createIssueManually = true
+distractionFreeMode = false
 
-  # dir name of your blog content (default is `content/posts`).
-  # the list of set content will show up on your index page (baseurl).
-  contentTypeName = "posts"
+[params.logo]
+path = "/images/icllogo.png"
 
-  # "light" or "dark"
-  defaultTheme = "dark"
+# dir name of your blog content (default is `content/posts`).
+# the list of set content will show up on your index page (baseurl).
+contentTypeName = "posts"
 
-  # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 2
+# "light" or "dark"
+defaultTheme = "dark"
 
-  # Show reading time in minutes for posts
-  showReadingTime = false
+# if you set this to 0, only submenu trigger will be visible
+showMenuItems = 2
 
-  # Show table of contents at the top of your posts (defaults to false)
-  # Alternatively, add this param to post front matter for specific posts
-  # toc = true
+# Show reading time in minutes for posts
+showReadingTime = false
 
-  # Show full page content in RSS feed items
-  #(default is Description or Summary metadata in the front matter)
-  # rssFullText = true
+# Show table of contents at the top of your posts (defaults to false)
+# Alternatively, add this param to post front matter for specific posts
+# toc = true
+
+# Show full page content in RSS feed items
+#(default is Description or Summary metadata in the front matter)
+# rssFullText = true
 
 [frontmatter]
-  lastmod = ["lastmod", ":fileModTime", ":default"]
+lastmod = ["lastmod", ":fileModTime", ":default"]
