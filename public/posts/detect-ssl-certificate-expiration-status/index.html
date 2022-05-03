@@ -142,9 +142,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Tue, 03 May 2022 09:57:33 &#43;0800"
+                  Modified <relative-time datetime="Tue, 03 May 2022 18:23:03 &#43;0800"
                     class="no-wrap">
-                    Tue, 03 May 2022 09:57:33 &#43;0800</relative-time>
+                    Tue, 03 May 2022 18:23:03 &#43;0800</relative-time>
                   
                 </div>
               </div>
@@ -225,9 +225,9 @@
 <span class="nv">CURRENT_TIME</span><span class="o">=</span><span class="k">$(</span>date <span class="s2">&#34;+%Y-%m-%d %H:%M:%S&#34;</span><span class="k">)</span>
 
 <span class="c1"># 声明报警数组</span>
+<span class="nb">declare</span> -A <span class="nv">warningDomains</span><span class="o">=()</span>
 
 <span class="k">function</span> main<span class="o">(){</span>
-    <span class="nb">declare</span> -A <span class="nv">warningDomains</span><span class="o">=()</span>
     <span class="nv">warningDomainsStr</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
     <span class="nv">readFile</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">script_dir</span><span class="si">}</span><span class="s2">/domain_ssl.info&#34;</span>
 

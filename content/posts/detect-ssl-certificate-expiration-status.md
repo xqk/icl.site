@@ -44,9 +44,9 @@ script_name=$(basename ${0})
 CURRENT_TIME=$(date "+%Y-%m-%d %H:%M:%S")
 
 # 声明报警数组
+declare -A warningDomains=()
 
 function main(){
-    declare -A warningDomains=()
     warningDomainsStr=""
     readFile="${script_dir}/domain_ssl.info"
 
