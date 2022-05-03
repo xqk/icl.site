@@ -21,6 +21,7 @@ location = "China"
 favicon = "/images/favicon.png"
 avatar = ""
 enableGitalk = true
+baidu = true
 
 [params.gitalk]
 clientID = "b61411f2bdbd985b3da2"
