@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ICL</title>
-    <link>/</link>
+    <link>https://www.icl.site/</link>
     <description>Recent content on ICL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 May 2022 01:12:46 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 May 2022 01:12:46 +0800</lastBuildDate><atom:link href="https://www.icl.site/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Readme</title>
-      <link>/readme/</link>
+      <link>https://www.icl.site/readme/</link>
       <pubDate>Tue, 03 May 2022 10:01:26 +0800</pubDate>
       
-      <guid>/readme/</guid>
+      <guid>https://www.icl.site/readme/</guid>
       <description>Hello World!</description>
     </item>
     
     <item>
       <title>检测SSL证书到期状态</title>
-      <link>/posts/detect-ssl-certificate-expiration-status/</link>
+      <link>https://www.icl.site/posts/detect-ssl-certificate-expiration-status/</link>
       <pubDate>Mon, 02 May 2022 01:12:46 +0800</pubDate>
       
-      <guid>/posts/detect-ssl-certificate-expiration-status/</guid>
+      <guid>https://www.icl.site/posts/detect-ssl-certificate-expiration-status/</guid>
       <description>检测SSL证书到期状态shell脚本，然后就可以通过心跳检测和企业微信机器人组合来实现自动告警</description>
     </item>
     
     <item>
       <title>Git分支命名规范</title>
-      <link>/posts/git-branch-naming-convention/</link>
+      <link>https://www.icl.site/posts/git-branch-naming-convention/</link>
       <pubDate>Sun, 01 May 2022 17:31:06 +0800</pubDate>
       
-      <guid>/posts/git-branch-naming-convention/</guid>
+      <guid>https://www.icl.site/posts/git-branch-naming-convention/</guid>
       <description>没有规矩不成方圆！Git分支命名规范才能避免分支杂乱不好管理的现象</description>
     </item>
     

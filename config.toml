@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://www.icl.site/"
 languageCode = "zh-cn"
 defaultContentLanguage = "cn"
 title = "ICL"

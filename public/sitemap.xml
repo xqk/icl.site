@@ -2,30 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/readme/</loc>
+    <loc>https://www.icl.site/readme/</loc>
     <lastmod>2022-05-03T10:29:12+08:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://www.icl.site/</loc>
     <lastmod>2022-05-03T10:00:30+08:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>https://www.icl.site/posts/</loc>
     <lastmod>2022-05-03T10:00:30+08:00</lastmod>
   </url><url>
-    <loc>/tags/ssl/</loc>
+    <loc>https://www.icl.site/tags/ssl/</loc>
     <lastmod>2022-05-03T09:57:33+08:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://www.icl.site/tags/</loc>
     <lastmod>2022-05-03T10:00:30+08:00</lastmod>
   </url><url>
-    <loc>/posts/detect-ssl-certificate-expiration-status/</loc>
+    <loc>https://www.icl.site/posts/detect-ssl-certificate-expiration-status/</loc>
     <lastmod>2022-05-03T09:57:33+08:00</lastmod>
   </url><url>
-    <loc>/tags/git/</loc>
+    <loc>https://www.icl.site/tags/git/</loc>
     <lastmod>2022-05-03T10:00:30+08:00</lastmod>
   </url><url>
-    <loc>/posts/git-branch-naming-convention/</loc>
+    <loc>https://www.icl.site/posts/git-branch-naming-convention/</loc>
     <lastmod>2022-05-03T10:00:30+08:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://www.icl.site/categories/</loc>
   </url>
 </urlset>
