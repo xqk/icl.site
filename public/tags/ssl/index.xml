@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssl on ICL</title>
-    <link>https://www.icl.site/tags/ssl/</link>
+    <link>/tags/ssl/</link>
     <description>Recent content in ssl on ICL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 May 2022 01:12:46 +0800</lastBuildDate><atom:link href="https://www.icl.site/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 May 2022 01:12:46 +0800</lastBuildDate><atom:link href="/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>检测SSL证书到期状态</title>
-      <link>https://www.icl.site/posts/detect-ssl-certificate-expiration-status/</link>
+      <link>/posts/detect-ssl-certificate-expiration-status/</link>
       <pubDate>Mon, 02 May 2022 01:12:46 +0800</pubDate>
       
-      <guid>https://www.icl.site/posts/detect-ssl-certificate-expiration-status/</guid>
+      <guid>/posts/detect-ssl-certificate-expiration-status/</guid>
       <description>检测SSL证书到期状态shell脚本，然后就可以通过心跳检测和企业微信机器人组合来实现自动告警</description>
     </item>
     
