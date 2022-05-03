@@ -2,17 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ICL</title>
-    
-    
-    
     <link>/</link>
     <description>Recent content on ICL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 May 2022 01:12:46 +0800</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 02 May 2022 01:12:46 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Readme</title>
+      <link>/readme/</link>
+      <pubDate>Tue, 03 May 2022 10:01:26 +0800</pubDate>
+      
+      <guid>/readme/</guid>
+      <description>Hello World!</description>
+    </item>
     
     <item>
       <title>检测SSL证书到期状态</title>
@@ -20,18 +22,7 @@
       <pubDate>Mon, 02 May 2022 01:12:46 +0800</pubDate>
       
       <guid>/posts/detect-ssl-certificate-expiration-status/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          不管怎样，网站安装SSL证书已经是大势所趋。当然，也有很多用户安装SSL证书就不管它了，所以务必要注意这一点，SSL证书也是有有效期期限的。如果超过了有效期，SSL证书便成了虚设，失去了其原本应有的作用。那么，怎么查看ssl证书是否过期？
-          
-        
-        </description>
+      <description>检测SSL证书到期状态shell脚本，然后就可以通过心跳检测和企业微信机器人组合来实现自动告警</description>
     </item>
     
     <item>
@@ -40,18 +31,7 @@
       <pubDate>Sun, 01 May 2022 17:31:06 +0800</pubDate>
       
       <guid>/posts/git-branch-naming-convention/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          主分支 Master，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。 主分支必须是可用的、稳定的、可直接发布的版本，不能直接在主分支上开发。
-          
-        
-        </description>
+      <description>没有规矩不成方圆！Git分支命名规范才能避免分支杂乱不好管理的现象</description>
     </item>
     
   </channel>

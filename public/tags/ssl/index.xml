@@ -2,36 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssl on ICL</title>
-    
-    
-    
     <link>/tags/ssl/</link>
     <description>Recent content in ssl on ICL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 May 2022 01:12:46 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 02 May 2022 01:12:46 +0800</lastBuildDate><atom:link href="/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>检测SSL证书到期状态</title>
       <link>/posts/detect-ssl-certificate-expiration-status/</link>
       <pubDate>Mon, 02 May 2022 01:12:46 +0800</pubDate>
       
       <guid>/posts/detect-ssl-certificate-expiration-status/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          不管怎样，网站安装SSL证书已经是大势所趋。当然，也有很多用户安装SSL证书就不管它了，所以务必要注意这一点，SSL证书也是有有效期期限的。如果超过了有效期，SSL证书便成了虚设，失去了其原本应有的作用。那么，怎么查看ssl证书是否过期？
-          
-        
-        </description>
+      <description>检测SSL证书到期状态shell脚本，然后就可以通过心跳检测和企业微信机器人组合来实现自动告警</description>
     </item>
     
   </channel>
