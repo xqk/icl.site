@@ -20,20 +20,20 @@ pygmentsUseClasses = true
   location = "China"
   favicon = "/images/favicon.png"
   avatar = ""
-#   enableGitalk = false
-#
-#     [params.gitalk]
-#       clientID = "b61411f2bdbd985b3da2"
-#       clientSecret = "edb4128727849400b78e389aa69492c8d718de9d"
-#       repo = "repo"
-#       owner = "xqk"
-#       admin = "xqk"
-#       id = "location.pathname"
-#       labels = "gitalk"
-#       perPage = 15
-#       pagerDirection = "last"
-#       createIssueManually = true
-#       distractionFreeMode = false
+  enableGitalk = true
+
+    [params.gitalk]
+      clientID = "b61411f2bdbd985b3da2"
+      clientSecret = "edb4128727849400b78e389aa69492c8d718de9d"
+      repo = "blogtalk"
+      owner = "xqk"
+      admin = "xqk"
+      id = "location.pathname"
+      labels = "gitalk"
+      perPage = 15
+      pagerDirection = "last"
+      createIssueManually = true
+      distractionFreeMode = false
 
   # dir name of your blog content (default is `content/posts`).
   # the list of set content will show up on your index page (baseurl).

@@ -200,6 +200,24 @@
 <script type="application/javascript" src='/js/toc.js'></script>
 <link rel="stylesheet" href='/css/toc.css' />
 
+<div id="gitalk-container" class="gitalk-container"></div>
+<link rel="stylesheet" href='/css/gitalk.css'>
+<script src='/js/gitalk.min.js'></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'b61411f2bdbd985b3da2',
+    clientSecret: 'edb4128727849400b78e389aa69492c8d718de9d',
+    repo: 'blogtalk',
+    owner: 'xqk',
+    admin: ['xqk'],
+    id: eval("location.pathname"), 
+    distractionFreeMode: false 
+  });
+  (function() {
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
 
   <div class="footer container-xl width-full p-responsive">
   <div
