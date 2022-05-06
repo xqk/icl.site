@@ -11,7 +11,7 @@ You can click the Preview link to take a look at your changes.
 
 ## Hi there 👋
 
-![myfile](giphy.gif)
+![myfile](/images/giphy.gif)
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=xqk&show_icons=true)
 
